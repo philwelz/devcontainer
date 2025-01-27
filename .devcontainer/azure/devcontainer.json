@@ -1,9 +1,10 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/python
 {
-	"name": "Python 3",
+	"name": "Azure",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+  // https://mcr.microsoft.com/v2/vscode/devcontainers/python/tags/list
+	"image": "mcr.microsoft.com/devcontainers/python:1.2.1-3.12-bookworm",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": "true",
@@ -11,7 +12,9 @@
             "userUid": "1000",
             "userGid": "1000",
             "upgradePackages": "true"
-        }
+        },
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/terraform:1": {}
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -29,14 +32,18 @@
         "vscode": {
             // Set *default* container specific settings.json values on container create.
             "settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
-              "ms-python.python",
-              "ms-python.debugpy",
+              "azapi-vscode.azapi",
+              "hashicorp.terraform",
+              "ms-azuretools.vscode-azureterraform",
+              "ms-azuretools.vscode-bicep",
               "github.copilot",
               "github.copilot-chat",
+              "ms-azuretools.vscode-azure-github-copilot",
+              "ms-azure-devops.azure-pipelines",
+              "github.vscode-github-actions",
               "editorconfig.editorconfig"
             ]
         }
